@@ -17,11 +17,21 @@ def test_filtra_por_pais(datos):
     print("Los datos que hay para este pais son:")
     print(filtra_por_pais(datos, "Spain"))
     
+def test_filtra_por_paises_y_anyo(datos):
+    print("Probando la función filtra_por_paises_y_anyo:")
+    print("El numero de habitantes por pais es:")
+    print(filtra_por_paises_y_anyo(datos, 2016, {"China", "France","Mexico","Portugal","Spain"}))
+
+    
 def test_muestra_evolucion_poblacion(datos):    
     print("Probando la funcion muestra_evolucion_poblacion ")
     print("La gráfica obtenida es:")
     print(muestra_evolucion_poblacion(datos, "Spain"))
-    
+
+def test_muestra_comparativa_paises_anyo(datos):
+    print("Probando la función muestra_comparativa_paises_anyo:")
+    print("El numero de habitantes en cada pais en 2000 era:")
+    print(muestra_comparativa_paises_anyo(datos, 2000, {"China", "France","Mexico","Portugal","Spain"}))
 
 
 if __name__== "__main__":
@@ -29,4 +39,8 @@ if __name__== "__main__":
     test_lee_poblacion(datos)
     test_calcula_paises(datos)
     test_filtra_por_pais(datos)
+    test_filtra_por_paises_y_anyo(datos)
+    test_muestra_evolucion_poblacion(datos)
+    test_muestra_comparativa_paises_anyo(datos)
+
     

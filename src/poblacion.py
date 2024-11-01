@@ -76,13 +76,35 @@ def muestra_evolucion_poblacion(poblaciones, nombre_o_codigo):
     ¡Importante!: el país puede venir expresado en el parámetro nombre_o_codigo con su nombre 
     completo o con su código.
     '''
-    if nombre_o_codigo == p.pais or nombre_o_codigo == p.codigo:
-        lista_años =[]
-        lista_habitantes = []
-        for p in poblaciones:
+    lista_años =[]
+    lista_habitantes = []
+    for p in poblaciones:
+        if nombre_o_codigo == p.pais or nombre_o_codigo == p.codigo:
             lista_años.append(p.año)
             lista_habitantes.append(p.censo)
+
         
     plt.title("Evolucion de la poblacion")
     plt.plot(lista_años, lista_habitantes)
+    plt.show()
+    
+def muestra_comparativa_paises_anyo(poblaciones, año, paises):
+    '''
+    toma una lista de tuplas de tipo RegistroPoblacion, 
+    un año y un conjunto de nombres de países y genera una
+    gráfica de barras con la población de esos países en el año dado 
+    como parámetro. Los países se mostrarán en el eje X en orden alfabético
+    '''
+    lista_paises=[]
+    lista_habitantes=[]    
+
+    for p in poblaciones:
+
+        if año == p.año and p.pais in paises:
+            lista_paises.append(p.pais)
+            lista_habitantes.append(p.censo)
+
+            
+    plt.title("Censo de cada país")
+    plt.bar(lista_paises, lista_habitantes)
     plt.show()
